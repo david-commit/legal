@@ -15,66 +15,193 @@
 ### Clients
 1. Sign Up - New client registration
 
-    post: ``/api/clients/signup``
+    POST: ``/api/clients/signup``
 
     Response: 
-    ```json
+  ```json
+    {
+      "id": 5,
+      "name": "Tess",
+      "email": "tess@gmail.com",
+      "phone": "0712345687"
+    }
   
-    id: 5,
-    name: "Tess",
-    email: "tess@gmail.com",
-    phone: "0712345687"
-  
-    ```
-2. Show - Returns logged in client's data
+  ```
+2. Show - Auto-login & returns logged in client's data
  
-    get: `/api/clients/me`
+    GET: `/api/clients/me`
 
     Response: 
-    ```json
-  
-    id: 5,
-    name: "Tess",
-    email: "tess@gmail.com",
-    phone: "0712345687"
-    ```
+  ```json
+    {
+      "id": 5,
+      "name": "Tess",
+      "email": "tess@gmail.com",
+      "phone": "0712345687"
+    }
+  ```
   
 3. Index - Returns list of all clients (Only advocates are authorized)
 
-    get: `/api/clients`
+    GET: `/api/clients`
 
      Response: 
 
-    [
-    ```json
+  ```json
+  [
     {
-      id: 4,
-      name: "Mike",
-      email: "mike@gmail.com",
-      phone: "0712345687"
+      "id": 4,
+      "name": "Mike",
+      "email": "mike@gmail.com",
+      "phone": "0712345687"
     },
     {
-      id: 5,
-      name: "Tess",
-      email: "tess@gmail.com",
-      phone: "0712345687"
+      "id": 5,
+      "name": "Tess",
+      "email": "tess@gmail.com",
+      "phone": "0712345687"
     }
-    ```
+  ]
+  ```
+
+4. Login - Creates a client session
+
+    POST: `/api/clients/login`
+    
+    Response: 
+
+  ```json
+    {
+      "id": 5,
+      "name": "Tess",
+      "email": "tess@gmail.com",
+      "phone": "0712345687"
+    }
+  ```
+
+ ### Dispute Categories
+ 1. Index - Returns all dispute categories with its associated advocaes and dispute sub-types.
+
+    GET:  `/api/dispute_categories`
+
+    Response:
+
+  ```json
+   {
+        "id": 1,
+        "category_name": "Children Law",
+        "category_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+        "advocates": [
+            {
+                "id": 1,
+                "name": "Ondiege",
+                "phone": "33491303",
+                "email": "ondiege@gmail.com",
+                "years_of_practice": 17,
+                "pin_number": 664566
+            }
+        ],
+        "dispute_types": [
+            {
+                "id": 1,
+                "dispute_category_id": 1,
+                "dispute_name": "Adoption"
+            },
+            {
+                "id": 2,
+                "dispute_category_id": 1,
+                "dispute_name": "Custody & Maintenance"
+            },
+            {
+                "id": 3,
+                "dispute_category_id": 1,
+                "dispute_name": "Guardianship"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "category_name": "Family Law",
+        "category_description": "issues involving family relationships such as marriage and divorce.",
+        "advocates": [
+            {
+                "id": 2,
+                "name": "Njomo",
+                "phone": "48803655",
+                "email": "njomo@gmail.com",
+                "years_of_practice": 10,
+                "pin_number": 555947
+            }
+        ],
+        "dispute_types": [
+            {
+                "id": 4,
+                "dispute_category_id": 2,
+                "dispute_name": "Trademark"
+            },
+            {
+                "id": 5,
+                "dispute_category_id": 2,
+                "dispute_name": "Copyright"
+            },
+            {
+                "id": 6,
+                "dispute_category_id": 2,
+                "dispute_name": "Patent"
+            }
+        ]
+    }
+  ```
+
+
+2. Create - Creating a new dispute category (For seeding DB)
+    
+    POST: `/api/dispute_categories`
+
+
+ ### Dispute Types
+
+1. Index - Get a list of all types of disputes
+
+    GET:  `/api/dispute_types`
+
+    Response:
+
+    ```json
+    [
+      {
+          "id": 3,
+          "dispute_category_id": 1,
+          "dispute_name": "Guardianship"
+      },
+      {
+          "id": 4,
+          "dispute_category_id": 2,
+          "dispute_name": "Trademark"
+      },
+      {
+           "id": 7,
+           "dispute_category_id": 3,
+           "dispute_name": "Insolvency & Bankruptcy"
+      },
+      {
+           "id": 14,
+           "dispute_category_id": 5,
+           "dispute_name": "Divorce & Separation"
+      }
     ]
+    ```
+
+ post "/api/dispute_types", to: "dispute_types#create"
+
+
 
  ### Sessions
- post "/api/clients/login", to: "sessions#client_login_session"
  delete "/api/clients/logout", to: "sessions#client_destroy_session" 
  post "/api/advocates/login", to: "sessions#advocate_login_session"
  delete "/api/advocates/logout", to: "sessions#advocate_destroy_session"
 
- ### Dispute Categories
- get "/api/dispute_categories", to: "dispute_categories#index"
- post "/api/dispute_categories", to: "dispute_categories#create"
 
- ### Dispute Types
- get "/api/dispute_types", to: "dispute_types#index"
- post "/api/dispute_types", to: "dispute_types#create"
 
  ### Advocates
  post "/api/advocates/signup", to: "advocates#create"
