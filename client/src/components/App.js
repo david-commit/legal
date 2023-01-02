@@ -1,35 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import Login from "../pages/Login";
-import RecipeList from "../pages/RecipeList";
-import NewRecipe from "../pages/NewRecipe";
+import Login from "./Login";
+import ClientSignUp from "./ClientSignUp";
+import AdvocateSignUp from "./AdvocateSignUp";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [userClient, setUserClient] = useState(null);
+  const [userAdvocate, setUserAdvocate] = useState(null);
+  // console.log(userClient)
 
   useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
+    // CLIENT auto-login
+    fetch('/api/clients/me').then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUserClient(user));
       }
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  useEffect(() => {
+    // ADVOCATE auto-login
+    fetch('/api/advocates/me').then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUserAdvocate(user));
+      }
+    });
+  }, []);
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar userClient={userClient} setUserClient={setUserClient} userAdvocate={userAdvocate} setUserAdvocate={setUserAdvocate} />
       <main>
         <Switch>
-          <Route path="/new">
-            <NewRecipe user={user} />
+          <Route exact path='/login'>
+            <Login setUserClient={setUserClient} setUserAdvocate={setUserAdvocate} />
           </Route>
-          <Route path="/">
-            <RecipeList />
+          <Route exact path='/clients/signup'>
+            <ClientSignUp setUserClient={setUserClient} />
           </Route>
+          <Route exact path="/advocates/signup">
+            <AdvocateSignUp setUserAdvocate={setUserAdvocate} />
+          </Route>
+          <Route path="*"><h1>Page Not Found</h1></Route>
         </Switch>
       </main>
     </>

@@ -1,59 +1,63 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { Button } from "../styles";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function NavBar({ user, setUser }) {
+function NavBar({ userClient, setUserClient, userAdvocate, setUserAdvocate }) {
+  // IF ELSEIF ELSE STATEMENT
+  // https://stackoverflow.com/questions/38810843/how-can-i-write-an-else-if-structure-using-react-jsx-the-ternary-is-not-expr
   function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
+    // eslint-disable-next-line
+    {
+      userClient
+        ? fetch('/api/clients/logout', {
+            method: 'DELETE',
+          }).then((r) => {
+            if (r.ok) {
+              setUserClient(null);
+            }
+          })
+        : userAdvocate
+        ? fetch('/api/advocates/logout', {
+            method: 'DELETE',
+          }).then((r) => {
+            if (r.ok) {
+              setUserAdvocate(null);
+            }
+          })
+        : alert('Not authorized!');
+    }
   }
 
   return (
-    <Wrapper>
-      <Logo>
-        <Link to="/">Reciplease</Link>
-      </Logo>
-      <Nav>
-        <Button as={Link} to="/new">
-          New Recipe
-        </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          Logout
-        </Button>
-      </Nav>
-    </Wrapper>
+    <>
+      {userClient || userAdvocate ? (
+        <button onClick={handleLogoutClick}>Logout</button>
+      ) : (
+        <>
+          <Link to='/login'>
+            <button>Client Login</button>
+          </Link>{' '}
+          <Link to='/clients/signup'>
+            <button>Client Signup</button>
+          </Link>
+          <h3>OR</h3>
+          <Link to='/login'>
+            <button>Advocate Login</button>
+          </Link>{" "}
+          <Link to='/advocates/signup'>
+            <button>Advocate SignUp</button>
+          </Link>
+        </>
+      )}
+      <br />
+      <br />
+      {userClient
+        ? `Hi ${userClient.name}! Logged in a client!`
+        : userAdvocate
+        ? `Hi ${userAdvocate.name}! Logged in as Advocate!`
+        : 'Not logged in!'}
+        <hr />
+    </>
   );
 }
-
-const Wrapper = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-`;
-
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 0;
-  line-height: 1;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  gap: 4px;
-  position: absolute;
-  right: 8px;
-`;
 
 export default NavBar;
