@@ -78,6 +78,11 @@
       "phone": "0712345687"
     }
   ```
+  5. Logout - Deletes an active client's session
+
+      DELETE: `/api/clients/logout`
+
+      <hr />
 
  ### Dispute Categories
  1. Index - Returns all dispute categories with its associated advocaes and dispute sub-types.
@@ -160,6 +165,7 @@
     
     POST: `/api/dispute_categories`
 
+      <hr />
 
  ### Dispute Types
 
@@ -197,6 +203,9 @@
 2. Create - Add a type of dispute associated to an dispute category (Used to seed DB)
 
     POST: `/api/dispute_types`
+
+      <hr />
+
 
  ### Advocates
 1. Sign Up - Register new advocate & creates a session for the user
@@ -288,6 +297,7 @@
 
     DELETE: `/api/advocates/logout`
 
+      <hr />
 
  ### Disputes
 1. Index - Returns all disputes
@@ -321,13 +331,5 @@
  get "/api/disputes/:id", to: "disputes#show"
  post "/api/disputes/create", to: "disputes#create"
  get "/api/disputes/:id", to: "disputes#destroy"
-
-
-
-
- ### Sessions
- delete "/api/clients/logout", to: "sessions#client_destroy_session" 
-
-
 
 
