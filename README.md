@@ -13,7 +13,7 @@
 
 ## API Documentation
 ### Clients
-1. Sign Up - New client registration
+1. Sign Up - New client registration & creates a session for the user
 
     POST: ``/api/clients/signup``
 
@@ -87,7 +87,8 @@
     Response:
 
   ```json
-   {
+  [
+    {
         "id": 1,
         "category_name": "Children Law",
         "category_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
@@ -118,8 +119,8 @@
                 "dispute_name": "Guardianship"
             }
         ]
-    },
-    {
+      },
+      {
         "id": 2,
         "category_name": "Family Law",
         "category_description": "issues involving family relationships such as marriage and divorce.",
@@ -150,7 +151,8 @@
                 "dispute_name": "Patent"
             }
         ]
-    }
+      }
+  ]
   ```
 
 
@@ -192,25 +194,140 @@
     ]
     ```
 
- post "/api/dispute_types", to: "dispute_types#create"
+2. Create - Add a type of dispute associated to an dispute category (Used to seed DB)
+
+    POST: `/api/dispute_types`
+
+ ### Advocates
+1. Sign Up - Register new advocate & creates a session for the user
+
+    POST: `/api/advocates/signup`
+
+    Response:
+
+  ```json
+  {
+    "id": 1,
+    "name": "Ondiege",
+    "email": "ondiege@gmail.com",
+    "phone": "33491303",
+    "years_of_practice": 17,
+    "pin_number": 664566
+  }
+  ```
+
+  2. Index - Returns a list of all advocates
+
+      GET: `/api/advocates`
+
+      Response: 
+
+      ```json
+      [
+        {
+          "id": 1,
+          "name": "Jon",
+          "phone": "48233817",
+          "email": "jon@gmail.com",
+          "years_of_practice": 4,
+          "pin_number": 362258
+        },
+        {
+          "id": 2,
+          "name": "Sylvia",
+          "phone": "85981857",
+          "email": "sylvia@gmail.com",
+          "years_of_practice": 13,
+          "pin_number": 348706
+        }
+      ]
+
+3. Show - Returns current advocate data with associated disputes
+
+ GET: `/api/advocates/me`
+
+ ```json
+ [
+    {
+      "id": 7,
+      "name": "Sylvia",
+      "phone": "85981857",
+      "email": "sylvia@gmail.com",
+      "years_of_practice": 13,
+      "pin_number": 348706,
+      "disputes": [
+        {
+          "id": 6,
+          "client_name": "Cynthia",
+          "advocate_name": "Sylvia",
+          "dispute_category_name": "Intellectual Property Law",
+          "dispute_description": "enable the owner of an intellectual property to exercise monopoly on the subject of the IP rights.",
+          "dispute_info": "I’m Moby goddamn Dick, and you just swam in my waters",
+          "created_at": "2023-01-02T15:06:10.388Z"
+        },
+    }
+ ]
+ ```
+4. Login - Creates session with a pre-existing advocate
+
+    POST: `/api/advocates/login`
+
+    Response:
+
+  ```json
+  {
+    "id": 1,
+    "name": "Anne",
+    "email": "anne@gmail.com",
+    "phone": "33491303",
+    "years_of_practice": 17,
+    "pin_number": 664566
+  }
+  ```
+5. Logout - Delete an active advocate's session
+
+    DELETE: `/api/advocates/logout`
+
+
+ ### Disputes
+1. Index - Returns all disputes
+
+    GET: `/api/disputes`
+
+    ```json
+    [
+      {
+
+        "id": 1,
+        "client_name": "Mike",
+        "advocate_name": "Meyers",
+        "dispute_category_name": "Children Law",
+        "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+        "dispute_info": "I don't play the odds, I play the man.",
+        "created_at": "2023-01-02T15:06:10.337Z"
+      },
+      {
+         "id": 2,
+        "client_name": "Barbra",
+        "advocate_name": "Kendi",
+        "dispute_category_name": "Family Law",
+        "dispute_description": "issues involving family relationships such as marriage and divorce.",
+        "dispute_info": "You just got Litt up!",
+        "created_at": "2023-01-02T15:06:10.348Z"
+      }
+    ]
+    ```
+
+ get "/api/disputes/:id", to: "disputes#show"
+ post "/api/disputes/create", to: "disputes#create"
+ get "/api/disputes/:id", to: "disputes#destroy"
+
 
 
 
  ### Sessions
  delete "/api/clients/logout", to: "sessions#client_destroy_session" 
- post "/api/advocates/login", to: "sessions#advocate_login_session"
- delete "/api/advocates/logout", to: "sessions#advocate_destroy_session"
 
 
 
- ### Advocates
- post "/api/advocates/signup", to: "advocates#create"
- get "/api/advocates", to: "advocates#index"
- get "/api/advocates/me", to: "advocates#show"
-
- ### Disputes
- get "/api/disputes", to: "disputes#index"
- get "/api/disputes/:id", to: "disputes#show"
- post "/api/disputes/create", to: "disputes#create"
- get "/api/disputes/:id", to: "disputes#destroy"
 
