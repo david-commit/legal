@@ -40,27 +40,27 @@
 ```json
 {
   "id": 1,
-  "name": "David",
-  "email": "david@gmail.com",
+  "name": "Brian",
+  "email": "Brian@gmail.com",
   "phone": "123340",
   "disputes": [
     {
       "id": 1,
-      "client_name": "David",
-      "advocate_name": "Ondiege",
+      "client_name": "Brian",
+      "advocate_name": "Biko",
       "dispute_category_name": "Children Law",
       "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
       "dispute_info": "I don't play the odds, I play the man.",
-      "created_at": "2023-01-02T15:06:10.337Z"
+      "created": "2023-01-03 09:27:24 UTC"
     },
     {
       "id": 20,
-      "client_name": "David",
+      "client_name": "Brian",
       "advocate_name": "Njomo",
       "dispute_category_name": "Family Law",
       "dispute_description": "issues involving family relationships such as marriage and divorce.",
       "dispute_info": "Sometimes good is not good enough.",
-      "created_at": "2023-01-02T15:06:10.518Z"
+      "created": "2023-01-03 09:27:24 UTC"
     }
   ]
 }
@@ -140,7 +140,7 @@
             "dispute_category_name": "Succession Law",
             "dispute_description": "deals with how to distribute a deceased individual's property.",
             "dispute_info": "I am sorry I don't have photographic memory, but my brain is too busy being awesome.",
-            "created_at": "2023-01-03T08:38:52.046Z"
+            "created": "2023-01-03 09:27:24 UTC"
           }
         ]
       },
@@ -159,7 +159,7 @@
             "dispute_category_name": "Succession Law",
             "dispute_description": "deals with how to distribute a deceased individual's property.",
             "dispute_info": "I don't have dreams, I have goals.",
-            "created_at": "2023-01-03T08:38:52.115Z"
+            "created": "2023-01-03 09:27:24 UTC"
           }
         ]
       }
@@ -236,8 +236,8 @@
 ```json
 {
   "id": 1,
-  "name": "Ondiege",
-  "email": "ondiege@gmail.com",
+  "name": "Biko",
+  "email": "Biko@gmail.com",
   "phone": "33491303",
   "years_of_practice": 17,
   "pin_number": 664566,
@@ -277,7 +277,7 @@
            "dispute_category_name": "Criminal Law",
            "dispute_description": "prescribes conduct perceived as threatening, harmful, or otherwise endangering to the property, health, safety, and moral welfare of people.",
            "dispute_info": "Failure is a bruise, not a tattoo.",
-           "created_at": "2023-01-03T08:38:52.093Z"
+           "created": "2023-01-03 09:27:24 UTC"
          }
        ]
      }
@@ -305,7 +305,7 @@ GET: `/api/advocates/me`
         "dispute_category_name": "Intellectual Property Law",
         "dispute_description": "enable the owner of an intellectual property to exercise monopoly on the subject of the IP rights.",
         "dispute_info": "I’m Moby goddamn Dick, and you just swam in my waters",
-        "created_at": "2023-01-02T15:06:10.388Z"
+        "created": "2023-01-03 09:27:24 UTC"
       }
     ]
   }
@@ -334,7 +334,7 @@ GET: `/api/advocates/me`
       "dispute_category_name": "Family Law",
       "dispute_description": "issues involving family relationships such as marriage and divorce.",
       "dispute_info": "When you work with tigers, once in a while they are going to take a swipe at you.",
-      "created_at": "2023-01-03T08:38:52.028Z"
+      "created": "2023-01-03 09:27:24 UTC"
     }
   ]
 }
@@ -361,7 +361,7 @@ GET: `/api/advocates/me`
         "dispute_category_name": "Children Law",
         "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
         "dispute_info": "I don't play the odds, I play the man.",
-        "created_at": "2023-01-02T15:06:10.337Z"
+        "created": "2023-01-03 09:27:24 UTC"
       },
       {
         "id": 2,
@@ -370,7 +370,7 @@ GET: `/api/advocates/me`
         "dispute_category_name": "Family Law",
         "dispute_description": "issues involving family relationships such as marriage and divorce.",
         "dispute_info": "You just got Litt up!",
-        "created_at": "2023-01-02T15:06:10.348Z"
+        "created": "2023-01-03 09:27:24 UTC"
       }
     ]
     ```
@@ -385,12 +385,12 @@ GET: `/api/advocates/me`
        [
          {
            "id": 1,
-           "client_name": "David",
-           "advocate_name": "Ondiege",
+           "client_name": "Brian",
+           "advocate_name": "Biko",
            "dispute_category_name": "Children Law",
            "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
            "dispute_info": "You just got Litt up!",
-           "created_at": "2023-01-03T08:38:52.017Z"
+           "created": "2023-01-03 09:27:24 UTC"
          }
        ]
        ```
@@ -405,15 +405,17 @@ GET: `/api/advocates/me`
        [
          {
            "id": 1,
-           "client_name": "David",
-           "advocate_name": "Ondiege",
+           "client_name": "Brian",
+           "advocate_name": "Biko",
            "dispute_category_name": "Children Law",
            "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
            "dispute_info": "You just got Litt up!",
-           "created_at": "2023-01-03T08:38:52.017Z"
+           "created": "2023-01-03 09:27:24 UTC"
          }
        ]
        ```
+
+       <strong>NOTE: Only a logged in Advocate can UPDATE and DESTROY a dispute record</strong>
 
        4. Destroy - Deletes a dispute record from the DB
 
@@ -429,12 +431,12 @@ GET: `/api/advocates/me`
           [
             {
               "id": 1,
-              "client_name": "David",
-              "advocate_name": "Ondiege",
+              "client_name": "Brian",
+              "advocate_name": "Biko",
               "dispute_category_name": "Children Law",
               "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
-              "dispute_info": "You just got Litt up!",
-              "created_at": "2023-01-03T08:38:52.017Z"
+              "dispute_info": "Case has been filed",
+              "created": "2023-01-03 09:27:24 UTC"
             }
           ]
           ```

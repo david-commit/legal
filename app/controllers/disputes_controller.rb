@@ -19,9 +19,25 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
      def destroy
         disp = Dispute.find_by(id: params[:id])
-        disp.delete
-        head :no_content
+        if disp
+         disp.delete
+         head :no_content
+        else
+         render json: { error: "Record not found" }, status: :not_found
+        end
      end
+
+     def update
+      advocate = Advocate.find_by(id: session[:advocate_id])
+      if advocate
+         dispute = Dispute.find_by(id: params[:id])
+         dispute.update!(dispute_update_params)
+         render json: dispute, status: :accepted
+      else
+         render json: { error: "Not authorized" }, status: :unauthorized
+      end
+   end
+
 
      private
 
@@ -36,5 +52,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
      def render_not_found(e)
         render json:  {errors: e.record.errors.full_messages}, status: :not_found
+     end
+
+     def dispute_update_params
+      params.permit(:dispute_info)
      end
 end
