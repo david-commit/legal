@@ -9,4 +9,9 @@ class DisputeCategoriesController < ApplicationController
         render json: cat, status: :created
     end
 
+    def show
+        cat = DisputeCategory.find_by(id: params[:id])
+        render json: cat, status: :ok
+    end
+
 end

@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Login from "./Login";
 import ClientSignUp from "./ClientSignUp";
 import AdvocateSignUp from "./AdvocateSignUp";
+import ClientDisputes from "./ClientDisputes";
 
 function App() {
   const [userClient, setUserClient] = useState(null);
@@ -30,19 +31,43 @@ function App() {
 
   return (
     <>
-      <NavBar userClient={userClient} setUserClient={setUserClient} userAdvocate={userAdvocate} setUserAdvocate={setUserAdvocate} />
+      <NavBar
+        userClient={userClient}
+        setUserClient={setUserClient}
+        userAdvocate={userAdvocate}
+        setUserAdvocate={setUserAdvocate}
+      />
       <main>
         <Switch>
           <Route exact path='/login'>
-            <Login setUserClient={setUserClient} setUserAdvocate={setUserAdvocate} />
+            {userClient ? (
+              <ClientDisputes userClient={userClient} />
+            ) : (
+              <Login
+                setUserClient={setUserClient}
+                setUserAdvocate={setUserAdvocate}
+              />
+            )}
           </Route>
           <Route exact path='/clients/signup'>
             <ClientSignUp setUserClient={setUserClient} />
           </Route>
-          <Route exact path="/advocates/signup">
+          <Route exact path='/advocates/signup'>
             <AdvocateSignUp setUserAdvocate={setUserAdvocate} />
           </Route>
-          <Route path="*"><h1>Page Not Found</h1></Route>
+          <Route exact path='/clients/me'>
+            {userClient ? (
+              <ClientDisputes userClient={userClient} />
+            ) : (
+              <Login
+                setUserClient={setUserClient}
+                setUserAdvocate={setUserAdvocate}
+              />
+            )}
+          </Route>
+          <Route path='*'>
+            <h1>Page Not Found</h1>
+          </Route>
         </Switch>
       </main>
     </>

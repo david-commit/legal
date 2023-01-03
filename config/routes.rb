@@ -14,6 +14,7 @@ Rails.application.routes.draw do
  # Dispute Categories
  get "/api/dispute_categories", to: "dispute_categories#index"
  post "/api/dispute_categories", to: "dispute_categories#create"
+ get "/api/dispute_categories/:id", to: "dispute_categories#show"
 
  # Dispute Types
  get "/api/dispute_types", to: "dispute_types#index"
