@@ -28,6 +28,7 @@ Rails.application.routes.draw do
  get "/api/disputes", to: "disputes#index"
  get "/api/disputes/:id", to: "disputes#show"
  post "/api/disputes/create", to: "disputes#create"
+ # CORRECT
  get "/api/disputes/:id", to: "disputes#destroy"
 
 end

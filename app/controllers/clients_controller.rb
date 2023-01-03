@@ -21,7 +21,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid_response
   def show
     client = Client.find_by(id: session[:client_id])
     return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :client_id
-      render json: client, status: :created 
+      render json: client, status: :ok, serializer: ClientMeSerializer
   end
 
   private

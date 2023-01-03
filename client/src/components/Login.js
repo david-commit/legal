@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Login({ setUserClient }) {
+function Login({ setUserClient, setUserAdvocate }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkbox, setCheckbox] = useState(false);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const loginLink = (checkbox ? '/api/advocates/login' : '/api/clients/login');
+  const loginLink = checkbox ? '/api/advocates/login' : '/api/clients/login';
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -21,7 +21,9 @@ function Login({ setUserClient }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUserClient(user));
+        r.json().then((user) => {
+          checkbox ? setUserAdvocate(user) : setUserClient(user);
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -62,8 +64,8 @@ function Login({ setUserClient }) {
             id='checkbox'
             value={checkbox}
             onChange={() => setCheckbox(!checkbox)}
-          />
-          {" "}Log in as Advocate
+          />{' '}
+          Log in as Advocate
         </label>
         <br />
         <br />
