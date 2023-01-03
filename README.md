@@ -440,3 +440,13 @@ GET: `/api/advocates/me`
             }
           ]
           ```
+
+## Deployment
+
+> Bycrpt is the technology used in authentication of users.
+
+> Sessions (cookies) are used to enable the application to maintain user-specific state, while users interact with the application. For example, sessions allow users to authenticate once and remain signed in for future requests.
+
+The whole application (FE and BE) will have to be bundled into a monolith application and deployed as one. This has been tried and tested on Railway.app and works as expected.
+
+Reason being, sessions do not work cross platforms eg having the FE deployed on Vercel and BE on Render but works on the same site deployment.
