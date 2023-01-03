@@ -251,38 +251,38 @@
 
    Response:
 
-   ```json
-   [
-     {
-       "id": 1,
-       "name": "Jon",
-       "phone": "48233817",
-       "email": "jon@gmail.com",
-       "years_of_practice": 4,
-       "pin_number": 362258,
-       "disputes": []
-     },
-     {
-       "id": 2,
-       "name": "Sylvia",
-       "phone": "85981857",
-       "email": "sylvia@gmail.com",
-       "years_of_practice": 13,
-       "pin_number": 348706,
-       "disputes": [
-         {
-           "id": 9,
-           "client_name": "Rhoda",
-           "advocate_name": "Sylvia",
-           "dispute_category_name": "Criminal Law",
-           "dispute_description": "prescribes conduct perceived as threatening, harmful, or otherwise endangering to the property, health, safety, and moral welfare of people.",
-           "dispute_info": "Failure is a bruise, not a tattoo.",
-           "created": "2023-01-03 09:27:24 UTC"
-         }
-       ]
-     }
-   ]
-   ```
+```json
+[
+  {
+    "id": 1,
+    "name": "Jon",
+    "phone": "48233817",
+    "email": "jon@gmail.com",
+    "years_of_practice": 4,
+    "pin_number": 362258,
+    "disputes": []
+  },
+  {
+    "id": 2,
+    "name": "Sylvia",
+    "phone": "85981857",
+    "email": "sylvia@gmail.com",
+    "years_of_practice": 13,
+    "pin_number": 348706,
+    "disputes": [
+      {
+        "id": 9,
+        "client_name": "Rhoda",
+        "advocate_name": "Sylvia",
+        "dispute_category_name": "Criminal Law",
+        "dispute_description": "prescribes conduct perceived as threatening, harmful, or otherwise endangering to the property, health, safety, and moral welfare of people.",
+        "dispute_info": "Failure is a bruise, not a tattoo.",
+        "created": "2023-01-03 09:27:24 UTC"
+      }
+    ]
+  }
+]
+```
 
 3. Show - Returns current advocate data with associated disputes
 
@@ -352,28 +352,28 @@ GET: `/api/advocates/me`
 
     GET: `/api/disputes`
 
-    ```json
-    [
-      {
-        "id": 1,
-        "client_name": "Mike",
-        "advocate_name": "Meyers",
-        "dispute_category_name": "Children Law",
-        "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
-        "dispute_info": "I don't play the odds, I play the man.",
-        "created": "2023-01-03 09:27:24 UTC"
-      },
-      {
-        "id": 2,
-        "client_name": "Barbra",
-        "advocate_name": "Kendi",
-        "dispute_category_name": "Family Law",
-        "dispute_description": "issues involving family relationships such as marriage and divorce.",
-        "dispute_info": "You just got Litt up!",
-        "created": "2023-01-03 09:27:24 UTC"
-      }
-    ]
-    ```
+```json
+[
+  {
+    "id": 1,
+    "client_name": "Mike",
+    "advocate_name": "Meyers",
+    "dispute_category_name": "Children Law",
+    "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+    "dispute_info": "I don't play the odds, I play the man.",
+    "created": "2023-01-03 09:27:24 UTC"
+  },
+  {
+    "id": 2,
+    "client_name": "Barbra",
+    "advocate_name": "Kendi",
+    "dispute_category_name": "Family Law",
+    "dispute_description": "issues involving family relationships such as marriage and divorce.",
+    "dispute_info": "You just got Litt up!",
+    "created": "2023-01-03 09:27:24 UTC"
+  }
+]
+```
 
     2. Show - Returns a specific dispute's data
 
@@ -381,19 +381,19 @@ GET: `/api/advocates/me`
 
        Response:
 
-       ```json
-       [
-         {
-           "id": 1,
-           "client_name": "Brian",
-           "advocate_name": "Biko",
-           "dispute_category_name": "Children Law",
-           "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
-           "dispute_info": "You just got Litt up!",
-           "created": "2023-01-03 09:27:24 UTC"
-         }
-       ]
-       ```
+  ```json
+  [
+    {
+      "id": 1,
+      "client_name": "Brian",
+      "advocate_name": "Biko",
+      "dispute_category_name": "Children Law",
+      "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+      "dispute_info": "You just got Litt up!",
+      "created": "2023-01-03 09:27:24 UTC"
+    }
+  ]
+  ```
 
     3. Create - Adds a new dispute record to the DB
 
@@ -401,45 +401,45 @@ GET: `/api/advocates/me`
 
        Response:
 
-       ```json
-       [
-         {
-           "id": 1,
-           "client_name": "Brian",
-           "advocate_name": "Biko",
-           "dispute_category_name": "Children Law",
-           "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
-           "dispute_info": "You just got Litt up!",
-           "created": "2023-01-03 09:27:24 UTC"
-         }
-       ]
-       ```
+  ```json
+  [
+    {
+      "id": 1,
+      "client_name": "Brian",
+      "advocate_name": "Biko",
+      "dispute_category_name": "Children Law",
+      "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+      "dispute_info": "You just got Litt up!",
+      "created": "2023-01-03 09:27:24 UTC"
+    }
+  ]
+  ```
 
-       <strong>NOTE: Only a logged in Advocate can UPDATE and DESTROY a dispute record</strong>
+  <strong>NOTE: Only a logged in Advocate can UPDATE and DESTROY a dispute record</strong>
 
-       4. Destroy - Deletes a dispute record from the DB
+4. Destroy - Deletes a dispute record from the DB
 
-          DELETE: `/api/disputes/:id`
+  DELETE: `/api/disputes/:id`
 
-       5. Update - Changes values of a dispute record & reurns the updated version
+5. Update - Changes values of a dispute record & reurns the updated version
 
-          PATCH: `api/disputes/:id`
+  PATCH: `api/disputes/:id`
 
-          Response:
+  Response:
 
-          ```json
-          [
-            {
-              "id": 1,
-              "client_name": "Brian",
-              "advocate_name": "Biko",
-              "dispute_category_name": "Children Law",
-              "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
-              "dispute_info": "Case has been filed",
-              "created": "2023-01-03 09:27:24 UTC"
-            }
-          ]
-          ```
+  ```json
+  [
+    {
+      "id": 1,
+      "client_name": "Brian",
+      "advocate_name": "Biko",
+      "dispute_category_name": "Children Law",
+      "dispute_description": "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.",
+      "dispute_info": "Case has been filed",
+      "created": "2023-01-03 09:27:24 UTC"
+    }
+  ]
+  ```
 
 ## Deployment
 
@@ -450,3 +450,7 @@ GET: `/api/advocates/me`
 The whole application (FE and BE) will have to be bundled into a monolith application and deployed as one. This has been tried and tested on Railway.app and works as expected.
 
 Reason being, sessions do not work cross platforms eg having the FE deployed on Vercel and BE on Render but works on the same site deployment.
+
+To deploy both as one, on the FE, run ```npm run build``` and copy all the files created in the build folder and paste them in the `public` folder of the backend. 
+
+You can now deploy the application. [Documentation on deploying the BE on Railway.app](https://docs.google.com/document/d/1eYrPpAhOO7HGV7qCc-z5WTiVzrs4cnaJIZe9OJoz6PY/edit?usp=sharing).

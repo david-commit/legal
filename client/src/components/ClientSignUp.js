@@ -110,7 +110,7 @@ function ClientSignUp({ setUserClient }) {
       <br />
       <span>
         Have an account?{' '}
-        <Link to='/clients/login'>
+        <Link to='/clSign Upients/login'>
           <button>Log in</button>
         </Link>
       </span>
