@@ -68,11 +68,11 @@ function NavBar({ userClient, setUserClient, userAdvocate, setUserAdvocate }) {
                 Dashboard
               </NavLink>
             </nav>
-            {userClient
+            {/* {userClient
               ? `Hi ${userClient.name}! Logged in a client!`
               : userAdvocate
               ? `Hi ${userAdvocate.name}! Logged in as Advocate!`
-              : 'Not logged in!'}
+              : 'Not logged in!'} */}
 
             {userClient || userAdvocate ? (
               <NavLink to='/'>

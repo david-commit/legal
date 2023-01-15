@@ -9,6 +9,7 @@ function Login({ setUserClient, setUserAdvocate, userAdvocate, userClient }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const loginLink = checkbox ? '/api/advocates/login' : '/api/clients/login';
+  console.log(userClient)
 
   function handleSubmit(e) {
     e.preventDefault();

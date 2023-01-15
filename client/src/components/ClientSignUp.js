@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../style/SignUp.css';
 
-function ClientSignUp({ setUserClient }) {
+function ClientSignUp({ userClient, setUserClient }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,6 +35,11 @@ function ClientSignUp({ setUserClient }) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    window.location.reload();
+  }
+
+  if (userClient) {
+    return <Redirect to="/clients/me" />
   }
 
   return (

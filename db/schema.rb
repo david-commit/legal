@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_143600) do
     t.integer "client_id"
     t.integer "advocate_id"
     t.integer "dispute_category_id"
-    t.string "dispute_info"
+    t.text "dispute_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

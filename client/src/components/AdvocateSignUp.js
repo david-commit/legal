@@ -126,7 +126,7 @@ function AdvocateSignUp({ setUserAdvocate }) {
           </optgroup>
         </select> */}
 
-        {field ? (
+        {/* {field ? (
           <>
             <label htmlFor=''>Select Advocate</label>
             <br />
@@ -147,7 +147,7 @@ function AdvocateSignUp({ setUserAdvocate }) {
           </>
         ) : (
           <em>Select Field</em>
-        )}
+        )} */}
 
         {/* {field ? (
           <select onChange={(e) => setSingleField(e.target.value)}>
@@ -169,8 +169,6 @@ function AdvocateSignUp({ setUserAdvocate }) {
           <em>Select Field</em>
         )} */}
 
-        <br />
-        <br />
         <label>Years of Practice</label>
         <br />
         <input

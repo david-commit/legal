@@ -24,7 +24,7 @@ function AdvocateProfile({ userAdvocate }) {
             <span>Pin Number:</span> {userAdvocate.pin_number}
           </p>
           <p className='advocate-details-title'>
-            <span>Actice disputes:</span> {userAdvocate.disputes.length}
+            <span>Active disputes:</span> {userAdvocate.disputes.length}
           </p>
         </div>
       </div>
