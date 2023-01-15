@@ -1,0 +1,30 @@
+/* DARK BLUE: #1f2839 */
+/* LIGHT BLUE: #30a3c8 */
+.login-container {
+ width: 35%;
+ height: 50vh;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ margin: 100px auto;
+ align-items: center;
+ justify-content: center;
+ background-color: #1f2839;
+}
+
+.login-container button {
+ background-color: #30a3c8;
+ color: white;
+ padding: 6px 12px;
+ font-size: 16px;
+ border: 1px solid #30a3c8;
+}
+.login-container button:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.35s ease-in-out;
+}
+.login-form > input{
+ width: 95%;
+}

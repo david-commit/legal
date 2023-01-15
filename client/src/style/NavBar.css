@@ -1,0 +1,190 @@
+/* DARK BLUE: #1f2839 */
+/* LIGHT BLUE: #00a3c8 */
+header {
+  height: 110px fixed;
+  width: auto;
+  /* border: 1px dashed blue; */
+}
+.header-topbar-section {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin: 0 auto;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo > img {
+  width: 120px;
+}
+.logo > h2 {
+  line-height: 36px;
+}
+.header-details-section {
+  display: flex;
+  align-items: center;
+}
+.first-section-details {
+  display: flex;
+  margin: 0 20px;
+  border-left: lightgray 1px solid;
+  height: 100%;
+  align-items: center;
+  padding-left: 30px;
+}
+.first-section-details > i {
+  color: #1f2839;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.first-section-details > p {
+  font-size: 18px;
+  color: #333;
+  line-height: 30px;
+}
+.first-section-details > p > span {
+  color: black;
+  font-size: 22px;
+}
+
+.second-section-details {
+  display: flex;
+  margin: 0 20px;
+  border-left: lightgray 1px solid;
+  height: 100%;
+  align-items: center;
+  padding-left: 30px;
+}
+.second-section-details > i {
+  color: #1f2839;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.second-section-details > p {
+  font-size: 18px;
+  color: #333;
+  line-height: 30px;
+}
+.second-section-details > p > span {
+  color: black;
+  font-size: 22px;
+}
+.header-bottom-bar {
+  width: 100%;
+  color: white;
+  background-color: #1f2839;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #1f2839;
+  border-bottom: 1px solid #1f2839;
+}
+.header-bottom-bar > div {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.header-bottom-bar-nav {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+.header-bottom-bar-nav > a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-right: 20px;
+  font-size: 22px;
+  height: 7vh;
+}
+.header-bottom-bar-nav > a.active {
+  /* color: #1f2839;
+  background-color: white; */
+  /* border: .1px solid #1f2839; */
+  color: #00a3c8;
+}
+.session-bottom-bar-nav {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+.session-bottom-bar-nav > a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  /* padding: 0 20px; */
+  justify-content: center;
+  width: 130px;
+  font-size: 22px;
+  height: 100%;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+.session-bottom-bar-nav > a.active {
+  color: #00a3c8;
+}
+.header-bottom-bar > div > a {
+  text-decoration: none;
+}
+.header-bottom-bar > div > a > button {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  /* padding: 0 20px; */
+  justify-content: center;
+  width: 130px;
+  font-size: 22px;
+  height: 100%;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-color: transparent;
+}
+.header-bottom-bar > div > a > button:hover {
+  color: #00a3c8;
+  cursor: pointer;
+}
+.home-practicing-areas {
+  height: 75vh;
+  background-color: #1f2839;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+.home-practcing-areas-cards {
+  width: 85%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-between;
+}
+.home-practcing-areas-card {
+  background-color: #263043;
+  display: flex;
+  margin: 40px 0;
+  height: 200px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.home-practcing-areas-card > i {
+  color: #00a3c8;
+  font-size: 40px;
+}
+.home-practcing-areas-card-text {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  line-height: 24px;
+}

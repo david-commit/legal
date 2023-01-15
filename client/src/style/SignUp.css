@@ -1,0 +1,29 @@
+/* DARK BLUE: #1f2839 */
+/* LIGHT BLUE: #30a3c8 */
+.client-signup-container {
+  width: 35%;
+  height: 70vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f2839;
+}
+.client-signup-container button {
+  background-color: #30a3c8;
+  color: white;
+  padding: 6px 12px;
+  font-size: 16px;
+  border: 1px solid #30a3c8;
+}
+.client-signup-container button:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.35s ease-in-out;
+}
+.client-signup-form > input {
+  width: 100%;
+}

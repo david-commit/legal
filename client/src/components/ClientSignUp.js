@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../style/SignUp.css';
 
 function ClientSignUp({ setUserClient }) {
   const [name, setName] = useState('');
@@ -38,82 +39,98 @@ function ClientSignUp({ setUserClient }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <div className='client-signup-container'>
+        <form onSubmit={handleSubmit} className='client-signup-form'>
+          <br />
+          <h1>Client Sign Up</h1>
+          <br />
+          <label htmlFor='name'>Name</label>
+          <br />
+          <input
+            type='text'
+            id='name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <br />
+
+          <label htmlFor='email'>Email</label>
+          <br />
+          <input
+            type='email'
+            id='email'
+            autoComplete='on'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <br />
+
+          <label htmlFor='password'>Password</label>
+          <br />
+          <input
+            type='password'
+            id='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete='current-password'
+          />
+          <br />
+          <br />
+
+          <label htmlFor='password'>Password Confirmation</label>
+          <br />
+          <input
+            type='password'
+            id='password_confirmation'
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            autoComplete='current-password'
+          />
+          <br />
+          <br />
+
+          <label htmlFor='phone'>Phone</label>
+          <br />
+          <input
+            type='text'
+            name='phone'
+            id='phone'
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <br />
+          <br />
+
+          <button type='submit'>{isLoading ? 'Loading...' : 'Sign Up'}</button>
+
+          {errors && errors.map((err) => <li key={err}>{err}</li>)}
+        </form>
         <br />
-        <br />
-        <h1>Client Sign Up</h1>
-        <label htmlFor='name'>Name</label>
-        <br />
-        <input
-          type='text'
-          id='name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+        <hr
+          style={{
+            width: '50%',
+            marginLeft: 0,
+            color: 'white',
+            border: '1px solid white',
+          }}
         />
         <br />
+        <span>
+          Have an account?{' '}
+          <Link to='/login'>
+            <button>Log in</button>
+          </Link>
+        </span>
         <br />
-
-        <label htmlFor='email'>email</label>
-        <br />
-        <input
-          type='email'
-          id='email'
-          autoComplete='on'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <br />
-
-        <label htmlFor='password'>Password</label>
-        <br />
-        <input
-          type='password'
-          id='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete='current-password'
-        />
-        <br />
-        <br />
-
-        <label htmlFor='password'>Password Confirmation</label>
-        <br />
-        <input
-          type='password'
-          id='password_confirmation'
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete='current-password'
-        />
-        <br />
-        <br />
-
-        <label htmlFor='phone'>Phone</label>
-        <br />
-        <input
-          type='text'
-          name='phone'
-          id='phone'
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <br />
-        <br />
-
-        <button type='submit'>{isLoading ? 'Loading...' : 'Sign Up'}</button>
-
-        {errors && errors.map((err) => <li key={err}>{err}</li>)}
-      </form>
-      <br />
-      <hr style={{ width: '300px', marginLeft: 0 }} />
-      <br />
-      <span>
-        Have an account?{' '}
-        <Link to='/clSign Upients/login'>
-          <button>Log in</button>
-        </Link>
-      </span>
+        <span>
+          Work with us as an Advocate?{' '}
+          <Link to='/advocates/signup'>
+            <button>Sign Up</button>
+          </Link>
+        </span>
+      </div>
     </>
   );
 }
