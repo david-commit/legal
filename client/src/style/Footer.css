@@ -1,0 +1,50 @@
+/* DARK BLUE: #1f2839 */
+footer {
+ width: 100%;
+ background-color: black;
+ margin-top: 80px;
+ height: 350px;
+ display: flex;
+ align-items: center;
+}
+.footer-container {
+ width: 85%;
+ display: flex;
+ color: white;
+ margin: auto;
+ justify-content: space-between;
+}
+.footer-section-one {
+ width: 30%;
+}
+.footer-section-two {
+ width: 20%;
+}
+.footer-section-three {
+ width: 20%;
+}
+.footer-section-four {
+ width: 22%;
+}
+.footer-section-two > p > i {
+ color: #6c949e;
+ width: 25px;
+}
+.footer-section-four > input {
+ padding: 11px;
+}
+.footer-section-four > button {
+ background-color: #6c949e;
+ color: white;
+ padding: 12px 16px;
+}
+#footer-sections {
+ line-height: 28px;
+ font-size: 18px;
+}
+#footer-sections > hr {
+ border: none;
+ width: 50px;
+ height: 3px;
+ background-color: #6c949e;
+}

@@ -1,0 +1,36 @@
+/* LIGHT BLUE > #00a3c8 */
+/* DARK BLUE > #1d3e68 */
+/* LIGHT GREY > #f8f9fb */
+.client-create-disputes-main-container {
+  width: 85%;
+  display: flex;
+  margin: 0 auto -80px auto;
+  height: 70vh;
+}
+.client-create-disputes-details-dash-section {
+  width: 55%;
+  padding: 35px;
+}
+.client-create-disputes-details-dash-section h1 {
+  color: #1d3e68;
+}
+#case-details {
+  width: 50%;
+  height: 10vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+#dispute-submit {
+  background-color: #1d3e68;
+  color: white;
+  padding: 6px 12px;
+  border: #1d3e68 1px solid;
+  font-size: 16px;
+}
+#dispute-submit:hover {
+  background-color: transparent;
+  border: #1d3e68 1px solid;
+  color: #1d3e68;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+}

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import '../style/Login.css';
 
-function Login({ setUserClient, setUserAdvocate }) {
+function Login({ setUserClient, setUserAdvocate, userAdvocate, userClient }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkbox, setCheckbox] = useState(false);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const loginLink = checkbox ? '/api/advocates/login' : '/api/clients/login';
+  console.log(userClient)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,13 +32,20 @@ function Login({ setUserClient, setUserAdvocate }) {
     });
   }
 
+  if (userAdvocate) {
+    return <Redirect to='/advocates/me' />;
+  }
+  if (userClient) {
+    return <Redirect to='/clients/me' />;
+  }
+
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <br />
+    <div className='login-container'>
+      <form onSubmit={handleSubmit} className='login-form'>
         <br />
         <h1>Client/Advocate Login</h1>
-        <label htmlFor='email'>email</label>
+        <br />
+        <label htmlFor='email'>Email</label>
         <br />
         <input
           type='text'
@@ -75,7 +84,14 @@ function Login({ setUserClient, setUserAdvocate }) {
         {errors && errors.map((err) => <li key={err}>{err}</li>)}
       </form>
       <br />
-      <hr style={{ width: '300px', marginLeft: 0 }} />
+      <hr
+        style={{
+          width: '50%',
+          marginLeft: 0,
+          color: 'white',
+          border: '1px solid white',
+        }}
+      />
       <br />
       <span>
         Dont have an account?{' '}
@@ -83,7 +99,8 @@ function Login({ setUserClient, setUserAdvocate }) {
           <button>Sign Up</button>
         </Link>
       </span>
-    </>
+      <br />
+    </div>
   );
 }
 

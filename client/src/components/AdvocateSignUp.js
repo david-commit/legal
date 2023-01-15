@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import "../style/AdvocateSignup.css"
 
 function AdvocateSignUp({ setUserAdvocate }) {
   const [name, setName] = useState('');
@@ -64,12 +65,12 @@ function AdvocateSignUp({ setUserAdvocate }) {
   }
 
   return (
-    <>
-      <form onSubmit={handleAdvocateSignup}>
-        <br />
+    <div className='advocate-signup-container'>
+      <form onSubmit={handleAdvocateSignup} className='advocate-signup-form'>
         <br />
         <br />
         <h1>Advocate SignUp</h1>
+        <br />
         <label htmlFor='name'>Name</label>
         <br />
         <input
@@ -125,27 +126,28 @@ function AdvocateSignUp({ setUserAdvocate }) {
           </optgroup>
         </select> */}
 
-        {field ? (
+        {/* {field ? (
           <>
-          <label htmlFor="">Select Advocate</label><br />
-          <select onChange={(e) => setSelectedAdvocate(e.target.value)}>
-            <option hidden>Select Advocate</option>
-            {Array.isArray(singleField.advocates) &&
-              singleField.advocates.map((f) => {
-                return(
-                  <>
-                  {console.log(f.name)}
-                  <option value={f.id} key={f.id}>{f.name}</option>
-                  </>
-                )
-              })}
-          </select>
-              </>
+            <label htmlFor=''>Select Advocate</label>
+            <br />
+            <select onChange={(e) => setSelectedAdvocate(e.target.value)}>
+              <option hidden>Select Advocate</option>
+              {Array.isArray(singleField.advocates) &&
+                singleField.advocates.map((f) => {
+                  return (
+                    <>
+                      {console.log(f.name)}
+                      <option value={f.id} key={f.id}>
+                        {f.name}
+                      </option>
+                    </>
+                  );
+                })}
+            </select>
+          </>
         ) : (
           <em>Select Field</em>
-        )}
-
- 
+        )} */}
 
         {/* {field ? (
           <select onChange={(e) => setSingleField(e.target.value)}>
@@ -167,8 +169,6 @@ function AdvocateSignUp({ setUserAdvocate }) {
           <em>Select Field</em>
         )} */}
 
-        <br />
-        <br />
         <label>Years of Practice</label>
         <br />
         <input
@@ -212,7 +212,7 @@ function AdvocateSignUp({ setUserAdvocate }) {
       <br />
       <br /> <br />
       <br />
-    </>
+    </div>
   );
 }
 

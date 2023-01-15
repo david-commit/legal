@@ -1,5 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../images/logo.jpg';
+import '../style/NavBar.css';
+import AdvocateProfile from './AdvocateProfile';
+import AdvocateSignUp from './AdvocateSignUp';
 
 function NavBar({ userClient, setUserClient, userAdvocate, setUserAdvocate }) {
   // IF ELSEIF ELSE STATEMENT
@@ -29,33 +33,64 @@ function NavBar({ userClient, setUserClient, userAdvocate, setUserAdvocate }) {
 
   return (
     <>
-      {userClient || userAdvocate ? (
-        <button onClick={handleLogoutClick}>Logout</button>
-      ) : (
-        <>
-          <Link to='/login'>
-            <button>Client Login</button>
-          </Link>{' '}
-          <Link to='/clients/signup'>
-            <button>Client Signup</button>
-          </Link>
-          <h3>OR</h3>
-          <Link to='/login'>
-            <button>Advocate Login</button>
-          </Link>{" "}
-          <Link to='/advocates/signup'>
-            <button>Advocate SignUp</button>
-          </Link>
-        </>
-      )}
-      <br />
-      <br />
-      {userClient
-        ? `Hi ${userClient.name}! Logged in a client!`
-        : userAdvocate
-        ? `Hi ${userAdvocate.name}! Logged in as Advocate!`
-        : 'Not logged in!'}
-        <hr />
+      <header>
+        <section className='header-topbar-section'>
+          <div className='logo'>
+            <img src={logo} alt='logo' />
+            <h2>
+              C. NJOMO <br /> ADVOCATES LLP
+            </h2>
+          </div>
+          <div className='header-details-section'>
+            <div className='first-section-details'>
+              <i class='fa-solid fa-phone-volume'></i>
+              <p>
+                Ngonglane Plaza, Nairobi <br />
+                <span>(+254) 712 345 678</span>
+              </p>
+            </div>
+            <div className='second-section-details'>
+              <i class='fa-solid fa-clock'></i>
+              <p>
+                Our Office Hours: Mon - Sat <br />
+                <span>09.00am - 05.00pm</span>
+              </p>
+            </div>
+          </div>
+        </section>
+        <section className='header-bottom-bar'>
+          <div>
+            <nav className='header-bottom-bar-nav'>
+              <NavLink exact to='/'>
+                Home
+              </NavLink>
+              <NavLink exact to='/advocates/me'>
+                Dashboard
+              </NavLink>
+            </nav>
+            {/* {userClient
+              ? `Hi ${userClient.name}! Logged in a client!`
+              : userAdvocate
+              ? `Hi ${userAdvocate.name}! Logged in as Advocate!`
+              : 'Not logged in!'} */}
+
+            {userClient || userAdvocate ? (
+              <NavLink to='/'>
+                <button onClick={handleLogoutClick}>Logout</button>
+              </NavLink>
+            ) : (
+              <nav className='session-bottom-bar-nav'>
+                <NavLink exact to='/login'>
+                  Login
+                </NavLink>
+                <NavLink exact to='/clients/signup'>
+                  Sign Up
+                </NavLink>
+              </nav>
+            )}
+          </div>
+        </section>
+      </header>
     </>
   );
 }

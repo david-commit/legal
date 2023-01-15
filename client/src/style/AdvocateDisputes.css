@@ -1,0 +1,52 @@
+/* LIGHT BLUE > #00a3c8 */
+/* DARK BLUE > #1d3e68 */
+/* LIGHT GREY > #f8f9fb */
+.advocate-disputes-main-container {
+  width: 85%;
+  display: flex;
+  margin: 0 auto -80px auto;
+  height: 70vh;
+}
+.advocate-disputes-details-dash-section {
+  width: 80%;
+  padding: 35px;
+}
+.advocate-disputes-details-dash-section h1 {
+  color: #1d3e68;
+}
+.advocate-disputes-details-dash-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.advocate-disputes-details-dash-section th {
+ background-color: #00a3c8;
+ color: white;
+ border: 1px solid #00a3c8;
+}
+.advocate-disputes-details-dash-section td,
+.advocate-disputes-details-dash-section th {
+  border: 1px solid lightgray;
+}
+.advocate-disputes-details-dash-section th {
+ padding: 10px;
+}
+.advocate-disputes-details-dash-section td {
+ text-align: center;
+}
+#dispute-info {
+ text-align: left;
+ height: 7vh;
+ padding: 0 6px;
+}
+.advocate-disputes-details-dash-section td > i:hover {
+ cursor: pointer;
+}
+#edit {
+ color: #00a3c8;
+}
+#delete {
+ color: red;
+}
+#empty {
+ padding: 10px;
+}
